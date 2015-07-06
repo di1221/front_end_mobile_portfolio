@@ -281,20 +281,21 @@ function getNoun(y) {
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 
+var radix;
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
 function generator(adj, noun) {
   var adjectives = getAdj(adj);
   var nouns = getNoun(noun);
-  var randomAdjective = parseInt(Math.random() * adjectives.length);
-  var randomNoun = parseInt(Math.random() * nouns.length);
+  var randomAdjective = parseInt(Math.random() * adjectives.length, radix);
+  var randomNoun = parseInt(Math.random() * nouns.length, radix);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
 }
 
 // Chooses random adjective and random noun
 function randomName() {
-  var randomNumberAdj = parseInt(Math.random() * adjectives.length);
-  var randomNumberNoun = parseInt(Math.random() * nouns.length);
+  var randomNumberAdj = parseInt(Math.random() * adjectives.length, radix);
+  var randomNumberNoun = parseInt(Math.random() * nouns.length, radix);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 }
 
@@ -412,6 +413,7 @@ var resizePizzas = function(size) {
         return;
       default:
         console.log("bug in changeSliderLabel");
+        break;
     }
   }
 
@@ -437,6 +439,7 @@ var resizePizzas = function(size) {
         break;
       default:
         console.log("bug in changePizzaSizes");
+        break;
     }
 
   //removed unnecessary calculations
