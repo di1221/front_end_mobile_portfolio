@@ -14,6 +14,7 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 4. optimized images and Saved down to 488.5KB out of 3MB. 27% per file on average (up to 67.7%)
 5. optimized order of styles and scripts
 6. specified image dimensions
+7. minified and inlined css on index.html
 
 
 #### Tools used ##########
@@ -21,7 +22,9 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 2. Photoshop - for some of the image optimization/compression
 3. Used my Samsung phone for additional (also used device mode in dev tools) Android testing
 4. Timeline - in dev tools
-5. Grunt -
+5. http://cssminifier.com/
+6. http://www.willpeavy.com/minifier/
+7. Grunt -
     using plug-in's:
        contrib-jshint (to validate javascript),
        contrib-uglify (to minify javascript),
@@ -59,4 +62,3 @@ fps is consistently below 40 fps
 
 
 # -frontend-nanodegree-mobile-portfolio
-
