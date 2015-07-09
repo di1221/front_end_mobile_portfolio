@@ -422,7 +422,8 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-  var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+  //var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+  var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
   var randomPizzaLength = randomPizzas.length;
 
     // Changes the slider value to a percent width
@@ -463,7 +464,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 20; i++) {
+for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -500,13 +501,13 @@ function updatePositions() {
   // created a variable for items.length so it doesn't needed to be recalculated on every loop
   var itemsLength =  items.length;
   //it was unnecessary to have the phase calculation in the for loop
-  var phase = Math.sin((document.body.scrollTop / 1250));
+  //var phase = Math.sin((document.body.scrollTop / 1250));
  //console.log("phase = " + phase);
   for (var i = 0; i < itemsLength; i++) {
     //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
 //console.log("phase = " + phase);
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    //items[i].style.left = items[i].basicLeft + 100 + 'px';
+    //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.left = items[i].basicLeft + 100 + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -526,16 +527,16 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  //do not need to loop through 200 and recreate times to update positions (removed for loop)
-  //for (var i = 0; i < 200; i++) {
+  //do not need to loop through 200  times to update positions (removed for loop)
+  for (var i = 0; i < 25; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-   // elem.basicLeft = (i % cols) * s;
-    //elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.getElementById("movingPizzas1").appendChild(elem);
-  //}
+  }
   updatePositions();
 });
