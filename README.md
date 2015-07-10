@@ -6,6 +6,17 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 ******** Accepted the challenge! *************
 
 
+#####  Steps to run application ##########
+1. user navigates to the index page
+2. user can click on any of the 4 links on the index page to see more content on other HTML pages.
+3. user clicks on Cams Pizzeria (must use this link for testing both sections of the project) and
+  will then land on the pizza.html page.
+4. Several buttons at top of the page take the user to those sections of the page (except contact us)
+5. When user scrolls down the page the pizza images (foreground and background) move locations on the page.
+6.  There is a slider bar that has 3 positions for pizza size large/medium/small.  Moving the slider
+  changes the size label to one of those 3 sizes, and correspondingly changes the size of the foreground pizza images.
+
+
 #### Optimizations on main.js ############
 -- using getElementById instead of querySelector for label change on pizza resize
 -- Changes the slider value to a percent width
@@ -15,6 +26,7 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 -- in update pizza position function :
      reduced the # of times from 200 to 25 for updating positions
      removed unnecessary for loop
+
 
 ##### Changed the following #####
 1. added character set to header in pizza.html.  It was already present in the other html files
@@ -38,7 +50,6 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
        contrib-concat (to concatenate src files),
        contrib-watch (to watch for any changes I was making to js files)
 7. ngrok
-8. PageSpeed Insights
 
 
 ##### Resources Used ############

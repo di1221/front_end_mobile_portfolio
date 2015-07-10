@@ -420,7 +420,7 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-  var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+  var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
   var randomPizzaLength = randomPizzas.length;
 
     // Changes the slider value to a percent width
@@ -494,13 +494,14 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-//changed to getElementsByClassName for better performance
+
   var items = document.getElementsByClassName('mover');
   // created a variable for items.length so it doesn't needed to be recalculated on every loop
   var itemsLength =  items.length;
-  //removed the unnecessary phase calculation in the for loop
-  for (var i = 0; i < 25; i++) {
-    items[i].style.left = items[i].basicLeft + 100 + 'px';
+  //it was unnecessary to have the phase calculation in the for loop
+  var phase = Math.sin((document.body.scrollTop / 1250));
+  for (var i = 0; i < itemsLength; i++) {
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -520,8 +521,11 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  //do not need to loop through 200  times to update positions (removed for loop)
-  for (var i = 0; i < 25; i++) {
+
+  //instead of using a hardcoded value changed to determine number by size of browser window
+  var pizzaSizes = (window.innerHeight / 50) + (window.innerWidth / 50);
+  for (var i = 0; i < pizzaSizes; i++) {
+
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
