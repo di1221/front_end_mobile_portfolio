@@ -6,6 +6,15 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 ******** Accepted the challenge! *************
 
 
+#### Optimizations on main.js ############
+-- using getElementById instead of querySelector for label change on pizza resize
+-- Changes the slider value to a percent width
+-- change pizza size function changes:
+     removed unnecessary calculations
+     pulled length calculations out of the repetitive loop causing forced asynchronous layouts
+-- in update pizza position function :
+     reduced the # of times from 200 to 25 for updating positions
+     removed unnecessary for loop
 
 ##### Changed the following #####
 1. added character set to header in pizza.html.  It was already present in the other html files
@@ -21,7 +30,8 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 2. Photoshop - for some of the image optimization/compression
 3. Used my Samsung phone for additional (also used device mode in dev tools) Android testing
 4. Timeline - in dev tools
-5. Grunt -
+5. http://cssminifier.com/
+6. Grunt -
     using plug-in's:
        contrib-jshint (to validate javascript),
        contrib-uglify (to minify javascript),
@@ -30,6 +40,7 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 
 
 ##### Resources Used ############
+http://cssminifier.com/
 https://www.udacity.com -
       Website Performance Optimization & Browser Rendering Optimization courses,
 https://developers.google.com (especially PageSpeed insights and analyzing crp perf sections),
@@ -39,7 +50,8 @@ https://www.npmjs.com/
 
 
 ####### Page Speed Results ########
-changed overall PageSpeed results from 29 to 98 (97 on android device)
+changed overall PageSpeed results from 99 (97 on mobile device / user experience 100 on mobile)
+
 
 
 
@@ -49,7 +61,7 @@ changed the interation for the changePizzaSizes function - to prevent multiple f
 ----  synchronous layouts
 optimized pizza and pizzeria jpg's
 
-reduced time to resize pizzas: > 1ms (on average)
+reduced time to resize pizzas: < .7ms (on average)
 fps is consistently below 40 fps
 
 

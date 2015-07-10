@@ -400,18 +400,16 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
+  //using getElementById instead of querySelector
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        //document.querySelector("#pizzaSize").innerHTML = "Small";
         document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        //document.querySelector("#pizzaSize").innerHTML = "Medium";
         document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        //document.querySelector("#pizzaSize").innerHTML = "Large";
         document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
@@ -422,7 +420,6 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-  //var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
   var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
   var randomPizzaLength = randomPizzas.length;
 
@@ -443,7 +440,6 @@ var resizePizzas = function(size) {
         break;
       default:
         console.log("bug in changePizzaSizes");
-        break;
     }
 
   //removed unnecessary calculations
@@ -491,22 +487,19 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
+//this has been altered a bit
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+//changed to getElementsByClassName for better performance
   var items = document.getElementsByClassName('mover');
   // created a variable for items.length so it doesn't needed to be recalculated on every loop
   var itemsLength =  items.length;
-  //it was unnecessary to have the phase calculation in the for loop
-  //var phase = Math.sin((document.body.scrollTop / 1250));
- //console.log("phase = " + phase);
-  for (var i = 0; i < itemsLength; i++) {
-    //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-//console.log("phase = " + phase);
-    //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  //removed the unnecessary phase calculation in the for loop
+  for (var i = 0; i < 25; i++) {
     items[i].style.left = items[i].basicLeft + 100 + 'px';
   }
 
