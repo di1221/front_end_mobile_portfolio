@@ -494,13 +494,17 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-
+  //code review pointed out that previous calculations did not have
+  //the same functionality in terms of pizza movement.
+  //paid closer attn to i%5 and it's purpose.
+  //reorganized what  should be in the loop and what shouldn't to perform properly
   var items = document.getElementsByClassName('mover');
-  // created a variable for items.length so it doesn't needed to be recalculated on every loop
-  var itemsLength =  items.length;
-  //it was unnecessary to have the phase calculation in the for loop
-  var phase = Math.sin((document.body.scrollTop / 1250));
+  var scrollX = document.body.scrollTop / 1250;
+  var itemsLength = items.length;
+  var phase;
+
   for (var i = 0; i < itemsLength; i++) {
+    phase = Math.sin(scrollX + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
