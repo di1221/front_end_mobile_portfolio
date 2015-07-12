@@ -423,9 +423,9 @@ var resizePizzas = function(size) {
   var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
   var randomPizzaLength = randomPizzas.length;
 
-    // Changes the slider value to a percent width
+    //Changes the slider value to a percent width
   changePizzaSizes(size);
-  // Iterates through pizza elements on the page and changes their widths
+  //Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     var newWidth = 0;
     switch(size) {
